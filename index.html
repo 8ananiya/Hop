@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zooming Box on Scroll</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 2000px; /* Add enough height to enable scrolling */
+        background: linear-gradient(
+    
+    
+    deepskyblue,
+    #001739 40%,
+    #001739 60%,
+    
+    #001739 90%,
+    #001739
+  );
+    }
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+    }
+.navbar {
+  background-color: transparent;
+  opacity: 0.5;
+}
+    .box {
+        position: fixed;
+        width: 300px;
+        height: 600px;
+        border: 16px solid black;
+        border-radius: 36px;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+        font-size: 24px;
+        transition: transform 0.5s;
+        background: white;
+        overflow: hidden;
+        
+    }
+  @media (min-width: 768px) {
+    
+
+  .box {
+        position: fixed;
+        width: 80%; /* Adjust the width for tablets and desktops */
+        max-width: 800px; /* Set a max width for desktops */
+        height: 80vh; /* Adjust the height */
+        max-height: 600px; /* Set a max height for desktops */
+        border: 16px solid black;
+        border-radius: 36px;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+        font-size: 24px;
+        transition: transform 0.5s;
+        background: white;
+        overflow: hidden;
+    }
+  }
+  
+
+
+
+
+</style>
+</head>
+<body>
+<div class="container">
+    <div class="box" overflow-x="hidden">
+
+
+        <audio id="background-audio" src="1.mp3" loop></audio>
+<iframe
+  id="inlineFrameExample"
+  title="Inline Frame Example"
+  width="100%"
+  height="100%"
+  border-radius="20px"
+  src="https://8ananiya.github.io/Bn/">
+</iframe>
+
+    </div>
+</div>
+<script>
+    const audio = document.getElementById('background-audio');
+    const box = document.querySelector('.box');
+    let scale = 1;
+    let isPlaying = false;
+
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const maxVolume = 0.5; // Maximum volume level (medium volume)
+        const volume = Math.min((scrollTop / scrollHeight) * maxVolume, maxVolume);
+
+        scale = 1 + scrollTop / 3800; // Adjust 1000 to change the zoom speed
+        box.style.transform = `scale(${scale})`;
+
+        audio.volume = volume;
+
+        if (!isPlaying && scrollTop > 0) {
+            audio.play();
+            isPlaying = true;
+        }
+    });
+</script>
+</body>
+</html>
