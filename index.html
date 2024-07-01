@@ -1,247 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tonkeeper Battery</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background-image: url('Jo.jpg');
-            
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tonkeeper Battery</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        height: 2000px; /* Add enough height to enable scrolling */
+        background: linear-gradient(
+    
+    
+    deepskyblue,
+    #001739 40%,
+    #001739 60%,
+    
+    #001739 90%,
+    #001739
+  );
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 20px
-            background: transparent;
-            border-radius: 30px;
-        }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
 
-        /* Navigation */
-        .navbar {
-            background: transparent;
-            backdrop-filter: blur(10px);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
+    }
+.navbar {
+  background-color: transparent;
+  opacity: 0.5;
+}
+    .box {
+        position: fixed;
+        width: 300px;
+        height: 600px;
+        border: 16px solid black;
+        border-radius: 36px;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+        font-size: 24px;
+        transition: transform 0.5s;
+        background: white;
+        overflow: hidden;
+        
+    }
+  @media (min-width: 768px) {
+    
 
-        .nav-link {
-            color: #000 !important;
-        }
+  .box {
+        position: fixed;
+        width: 80%; /* Adjust the width for tablets and desktops */
+        max-width: 800px; /* Set a max width for desktops */
+        height: 80vh; /* Adjust the height */
+        max-height: 600px; /* Set a max height for desktops */
+        border: 16px solid black;
+        border-radius: 36px;
+        color: white;
+        text-align: center;
+        line-height: 200px;
+        font-size: 24px;
+        transition: transform 0.5s;
+        background: white;
+        overflow: hidden;
+    }
+  }
+  
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            padding: 100px 0;
-            text-align: center;
-            color: #fff;
-            overflow: hidden;
-        }
 
-        .hero video {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
 
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,255,0);
-            z-index: -1;
-        }
 
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-        }
-
-        /* Features Section */
-        .features {
-            background-color: transparent;
-            backdrop-filter: blur(10px);
-            padding: 80px 0;
-            text-align: center;
-            color: #fff;
-        }
-
-        .features h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-        }
-
-        .feature {
-            margin-bottom: 40px;
-            text-align: left;
-            background: rgba(255,255,255,0.294);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.5s ease-in-out;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .feature.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .feature p {
-            font-size: 1.1rem;
-        }
-
-        /* Start Using Section */
-        .start-using {
-            background-color: transparent;
-            backdrop-filter: blur(10px);
-            padding: 80px 0;
-            text-align: center;
-color: #fff;
-        }
-
-        .start-using h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-color: #fff;
-        }
-
-        .start-using .feature {
-            margin-bottom: 40px;
-            text-align: left;
-            background: rgba(255,255,255,0.5);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            border-radius: 10px;
-            transition: transform 0.5s ease-in-out;
-            opacity: 0;
-            transform: translateY(50px);
-        }
-
-        .start-using .feature.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .start-using .feature p {
-            font-size: 1.1rem;
-color: #fff;
-        }
-
-        /* Scroll Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.4s ease, transform 0.4s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+</style>
 </head>
 <body>
+<div class="container">
+    <div class="box" overflow-x="hidden">
+<a href="untitled.t.html">hop</a>
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Tonkeeper</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarColor01">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Action</a>
-                            <a class="dropdown-item" href="#">Another action</a>
-                            <a class="dropdown-item" href="#">Something else here</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Separated link</a>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        <audio id="background-audio" src="1.mp3" loop></audio>
+<iframe
+  id="inlineFrameExample"
+  title="Inline Frame Example"
+  width="100%"
+  height="100%"
+  border-radius="20px"
+  src="https://8ananiya.github.io/Bn/">
+</iframe>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <video autoplay muted loop>
-            <source src="Ab.mp4" style="backdrop-filter: blur(10px);" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-        <div class="container">
-            <h2>What is Tonkeeper Battery?</h2>
-            <p>We are excited to announce a major new feature: Tonkeeper Battery. It is in public beta and available on all mobile platforms starting today.</p>
-        </div>
-    </section>
+    </div>
+</div>
+<script>
+    const audio = document.getElementById('background-audio');
+    const box = document.querySelector('.box');
+    let scale = 1;
+    let isPlaying = false;
 
-    <!-- How it Works Section -->
-    <section id="how-it-works" class="features">
-        <div class="container">
-            <h2>How does it work?</h2>
-            <div class="feature slide-in">
-                <p>With Tonkeeper Battery you can receive tokens (stablecoins, NFTs etc.) and make payments with a token — without going to an exchange to buy coins to cover blockchain fees. Tonkeeper Battery pays your fees for you, automatically.</p>
-            </div>
-            <div class="feature slide-in">
-                <p>You can charge the battery with one tap using in-app purchases, or with TON or stablecoins. Send a few dollars worth of stablecoins or TON to a special address: battery.ton and it will automatically apply charges to your account.</p>
-            </div>
-            <div class="feature slide-in">
-                <p>Tonkeeper Battery is denominated in charges, each charge covers the fee of a simple TON transfer transaction. More complex transactions may consume 5, 10 or more charges.</p>
-            </div>
-        </div>
-    </section>
+    window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY;
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const maxVolume = 0.5; // Maximum volume level (medium volume)
+        const volume = Math.min((scrollTop / scrollHeight) * maxVolume, maxVolume);
 
-    <!-- Start Using Battery Section -->
-    <section id="start-using" class="start-using">
-        <div class="container">
-            <h2>Start using battery today</h2>
-            <div class="feature fade-in">
-                <p>Update Tonkeeper on iOS and Android to version 4.3, then top up the battery in Settings → Battery. Once charged, the battery status will appear on the main screen. We are still testing the battery: some kinds of transactions are not supported yet. When charging via battery.ton we only support jUSDT and TON, other tokens will be added later.</p>
-                <p>Join our Battery Public Beta discussion group to report your feedback, questions and suggestions 👉 <a href="https://t.me/batterypublicbeta">t.me/batterypublicbeta</a></p>
-                <p>Get charged!⚡️</p>
-            </div>
-        </div>
-    </section>
+        scale = 1 + scrollTop / 3800; // Adjust 1000 to change the zoom speed
+        box.style.transform = `scale(${scale})`;
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        audio.volume = volume;
 
-    
+        if (!isPlaying && scrollTop > 0) {
+            audio.play();
+            isPlaying = true;
+        }
+    });
+</script>
 </body>
 </html>
